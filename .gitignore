@@ -1,39 +1,41 @@
-# Python bytecode and caches
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+
+# Python
 __pycache__/
 *.py[cod]
-*$py.class
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 .coverage
 htmlcov/
 
-# Virtual environments
+# Virtual environments and local settings
 .venv/
 venv/
 env/
-
-# Environment variables and local configuration
 .env
 .env.*
 !.env.example
 
-# Packaging and build artifacts
+# Build artifacts
 build/
 dist/
 *.egg-info/
-
-# Jupyter
 .ipynb_checkpoints/
 
-# IDE and operating-system files
-.idea/
-.vscode/
-.DS_Store
-
-# Local datasets and generated artifacts
+# Generated data and models
 data/raw/
 data/processed/
-models/*.pkl
-models/*.pickle
-models/*.joblib
+models/
+
+# Airflow local state and secrets
+services/airflow/logs/
+services/airflow/airflow.cfg
+services/airflow/webserver_config.py
+services/airflow/*.db
+services/airflow/*.db-*
+services/airflow/*.pid
+services/airflow/simple_auth_manager_passwords.json.generated
