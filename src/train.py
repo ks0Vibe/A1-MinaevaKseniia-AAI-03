@@ -53,10 +53,6 @@ CATEGORICAL_COLUMNS = [
 FEATURE_COLUMNS = NUMERIC_COLUMNS + CATEGORICAL_COLUMNS
 
 def load_data() -> tuple[pd.DataFrame, pd.DataFrame]:
-    """
-    Load processed train and test datasets produced
-    by Stage 1.
-    """
 
     if not TRAIN_DATA_PATH.exists():
         raise FileNotFoundError(
@@ -79,10 +75,6 @@ def validate_data(
     train_df: pd.DataFrame,
     test_df: pd.DataFrame,
 ) -> None:
-    """
-    Check that all expected columns exist and that
-    processed datasets contain no missing values.
-    """
 
     required_columns = set(FEATURE_COLUMNS + [TARGET_COLUMN])
 
@@ -127,9 +119,6 @@ def prepare_features(
     pd.DataFrame,
     pd.Series,
 ]:
-    """
-    Separate features from the target.
-    """
 
     X_train = train_df[FEATURE_COLUMNS].copy()
     y_train = train_df[TARGET_COLUMN].copy()
@@ -202,9 +191,6 @@ def train_model(
     X_train: pd.DataFrame,
     y_train: pd.Series,
 ) -> Pipeline:
-    """
-    Train the complete sklearn pipeline.
-    """
 
     print("\nTraining model...")
 
@@ -223,9 +209,6 @@ def evaluate_model(
     X_test: pd.DataFrame,
     y_test: pd.Series,
 ) -> dict:
-    """
-    Evaluate the model on the reserved test dataset.
-    """
 
     predictions = pipeline.predict(X_test)
 
@@ -274,9 +257,6 @@ def evaluate_model(
 def save_model(
     pipeline: Pipeline,
 ) -> None:
-    """
-    Save the complete preprocessing + model pipeline.
-    """
 
     MODELS_DIR.mkdir(
         parents=True,
@@ -297,9 +277,6 @@ def save_model(
 def save_metrics(
     metrics: dict,
 ) -> None:
-    """
-    Save test metrics as JSON.
-    """
 
     REPORTS_DIR.mkdir(
         parents=True,

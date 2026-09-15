@@ -60,10 +60,6 @@ NUMERIC_COLUMNS = [
 
 
 def load_raw_data() -> pd.DataFrame:
-    """
-    Load both original UCI Adult files and combine them
-    into one raw DataFrame.
-    """
 
     adult_data = pd.read_csv(
         ADULT_DATA_PATH,
@@ -232,9 +228,6 @@ def print_dataset_info(
     name: str,
     df: pd.DataFrame,
 ) -> None:
-    """
-    Print basic information useful for pipeline logs.
-    """
 
     print(f"\n{name}")
     print("-" * 40)
